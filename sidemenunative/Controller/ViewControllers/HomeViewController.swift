@@ -13,13 +13,12 @@ protocol HomeViewControllerDelegate: AnyObject {
 
 class HomeViewController: UIViewController {
     
-    
     weak var delegate: HomeViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .gray
+        view.backgroundColor = .systemBackground
         title = "Home"
         
         // Para cambiar el color del titulo del NC
@@ -29,18 +28,12 @@ class HomeViewController: UIViewController {
                                                            style: .done,
                                                            target: self,
                                                            action: #selector(didTabMenuButton))
-        
-        
-        
+   
     }
-    
-    
-    
+
     @objc func didTabMenuButton() {
         delegate?.didTabMenuButton()
     }
-    
-    
 }
 
 

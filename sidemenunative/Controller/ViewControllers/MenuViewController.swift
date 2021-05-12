@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 protocol MenuViewControllerDelegate: AnyObject {
     func didSelect(menuItem: MenuViewController.MenuOption)
 }
@@ -47,6 +48,19 @@ class MenuViewController: UIViewController {
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return table
     }()
+    
+    private var viewHeader: UIView{
+        let frame = CGRect(x: -40.0,
+                           y: 0.0,
+                           width:  self.view.frame.size.width,
+                           height: 180.0)
+        
+        let vw = HeaderSideMenuView(frame: frame)
+        vw.configureView(nameUser: "-Peña Barrios Cristian-")
+        return vw
+    }
+    
+     // Vista de encabezado del menu
 
     
     let grayColor = UIColor.white
@@ -54,7 +68,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        view.addSubview(viewHeader)
         
         view.addSubview(tableView)
         
@@ -64,7 +78,7 @@ class MenuViewController: UIViewController {
         
         
         addCustomTable()
-        addHeaderTable()
+        //addHeaderTable()
 
         
         // fondo del menu
@@ -74,26 +88,24 @@ class MenuViewController: UIViewController {
     func addCustomTable() {
         tableView.backgroundColor = .systemBackground // fondo de la tabla
         tableView.tableFooterView = UIView() // para quitar la lineas de espacios vacios
-        tableView.alwaysBounceVertical = false //activar el scroll
-        tableView.rowHeight = CGFloat(40) // Altura de cada una de las celdas
+        tableView.alwaysBounceVertical = true //activar el scroll
+        tableView.rowHeight = CGFloat(44) // Altura de cada una de las celdas
         tableView.separatorStyle = .none // Quitar las lineas de la tabla
     }
     
-    func addHeaderTable() {
-        var viewHeader: UIView{
-            let frame = CGRect(x: 0.0,y: 0.0,width:  self.view.frame.size.width, height: 160.0)
-            let vw = HeaderSideMenuView(frame: frame)
-            vw.configureView(nameUser: "-Peña Barrios Cristian-")
-            return vw
-        } // Vista de encabezado del menu
-        
-        tableView.tableHeaderView = viewHeader // Agregamos el Header del side menu
-    }
+    
     
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tableView.frame =  CGRect(x: 0, y: view.safeAreaInsets.top , width: view.bounds.size.width, height:     view.bounds.size.height)
+        viewHeader.frame = CGRect(x: -44, // -44 para que el view header se vea bien
+                                  y: view.safeAreaInsets.top, // el -80 para dar la impresion de que ocupa hasta el status bar
+                                  width: view.bounds.size.width,
+                                  height: 170)
+        tableView.frame = CGRect(x: 0, // -44 para que el view header se vea bien
+                                 y: view.safeAreaInsets.top+140, // el -80 para dar la impresion de que ocupa hasta el status bar
+                                 width: view.bounds.size.width,
+                                 height: view.bounds.size.height)
     }
     
 }

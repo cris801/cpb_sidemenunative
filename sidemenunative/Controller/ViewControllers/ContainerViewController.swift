@@ -28,6 +28,8 @@ class ContainerViewController: UIViewController {
         super.viewDidLoad()
         
         addChildVCs()
+        
+        
     }
     
 
@@ -60,12 +62,25 @@ class ContainerViewController: UIViewController {
         
         var constraints = [NSLayoutConstraint]()
         
-        let nch: CGFloat = navVC!.navigationBar.frame.size.height
+        let nbHeight: CGFloat = navVC!.navigationBar.frame.size.height
         // Add
         constraints.append(v.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor))
         constraints.append(v.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor))
         constraints.append(v.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor))
-        constraints.append(v.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: nch))
+        constraints.append(v.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: nbHeight))
+        
+        NSLayoutConstraint.activate(constraints)
+        
+    }
+    func addConstraintsMenu(v: UIView)  {
+        
+        var constraints = [NSLayoutConstraint]()
+        
+        // Add
+        constraints.append(v.widthAnchor.constraint(equalTo: self.view.widthAnchor,constant: 100))
+        constraints.append(v.heightAnchor.constraint(equalTo: self.view.heightAnchor))
+        constraints.append(v.centerXAnchor.constraint(equalTo: self.view.centerXAnchor,constant: 100))
+        constraints.append(v.centerYAnchor.constraint(equalTo: self.view.centerYAnchor))
         
         NSLayoutConstraint.activate(constraints)
         
@@ -150,7 +165,7 @@ extension ContainerViewController: HomeViewControllerDelegate {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut) {
                 
                 // porcentaje que se mostrara en pantalla
-                self.navVC?.view.frame.origin.x = self.homeVC.view.frame.size.width - 100
+                self.navVC?.view.frame.origin.x = self.homeVC.view.frame.size.width - 80
                 
             } completion: { [weak self] done in
                 if done {

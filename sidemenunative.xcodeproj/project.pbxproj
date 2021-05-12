@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A603CF1F264BA02600672516 /* AppRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A603CF1D264BA02600672516 /* AppRatingViewController.swift */; };
 		A603CF20264BA02600672516 /* AppRatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A603CF1E264BA02600672516 /* AppRatingViewController.xib */; };
+		A603CF22264C734100672516 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A603CF21264C734100672516 /* HomeViewController.xib */; };
 		A634649A2645FC7B005C8815 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63464992645FC7B005C8815 /* AppDelegate.swift */; };
 		A634649C2645FC7B005C8815 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A634649B2645FC7B005C8815 /* SceneDelegate.swift */; };
 		A634649E2645FC7B005C8815 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A634649D2645FC7B005C8815 /* ContainerViewController.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		A603CF1D264BA02600672516 /* AppRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRatingViewController.swift; sourceTree = "<group>"; };
 		A603CF1E264BA02600672516 /* AppRatingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppRatingViewController.xib; sourceTree = "<group>"; };
+		A603CF21264C734100672516 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		A63464962645FC7B005C8815 /* sidemenunative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sidemenunative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A63464992645FC7B005C8815 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A634649B2645FC7B005C8815 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				A603CF1E264BA02600672516 /* AppRatingViewController.xib */,
+				A603CF21264C734100672516 /* HomeViewController.xib */,
 			);
 			path = NIB;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			files = (
 				A689C47C2646545C00EB26D2 /* HeaderSideMenuView.xib in Resources */,
 				A603CF20264BA02600672516 /* AppRatingViewController.xib in Resources */,
+				A603CF22264C734100672516 /* HomeViewController.xib in Resources */,
 				A63464A62645FC7C005C8815 /* LaunchScreen.storyboard in Resources */,
 				A63464A32645FC7C005C8815 /* Assets.xcassets in Resources */,
 			);
