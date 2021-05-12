@@ -49,23 +49,53 @@ class MenuViewController: UIViewController {
     }()
 
     
-    let grayColor = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
+    let grayColor = UIColor.white
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
         view.addSubview(tableView)
+        
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
+        
+        addCustomTable()
+        addHeaderTable()
+
         
         // fondo del menu
         view.backgroundColor = grayColor
     }
     
+    func addCustomTable() {
+        tableView.backgroundColor = .systemBackground // fondo de la tabla
+        tableView.tableFooterView = UIView() // para quitar la lineas de espacios vacios
+        tableView.alwaysBounceVertical = false //activar el scroll
+        tableView.rowHeight = CGFloat(40) // Altura de cada una de las celdas
+        tableView.separatorStyle = .none // Quitar las lineas de la tabla
+    }
+    
+    func addHeaderTable() {
+        var viewHeader: UIView{
+            let frame = CGRect(x: 0.0,y: 0.0,width:  self.view.frame.size.width, height: 160.0)
+            let vw = HeaderSideMenuView(frame: frame)
+            vw.configureView(nameUser: "-Peña Barrios Cristian-")
+            return vw
+        } // Vista de encabezado del menu
+        
+        tableView.tableHeaderView = viewHeader // Agregamos el Header del side menu
+    }
+    
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame =  CGRect(x: 0, y: view.safeAreaInsets.top , width: view.bounds.size.width, height:     view.bounds.size.height)
     }
+    
 }
 
 extension MenuViewController: UITableViewDataSource {
@@ -77,9 +107,9 @@ extension MenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text =  MenuOption.allCases[indexPath.row].rawValue
-        cell.textLabel?.textColor = .white
+        cell.textLabel?.textColor = .black
         cell.imageView?.image = UIImage(systemName: MenuOption.allCases[indexPath.row].imageName)
-        cell.imageView?.tintColor = .white
+        cell.imageView?.tintColor = .black
         cell.backgroundColor = grayColor
         cell.contentView.backgroundColor = grayColor
         return cell

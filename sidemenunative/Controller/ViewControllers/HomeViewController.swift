@@ -19,18 +19,28 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .gray
         title = "Home"
+        
+        // Para cambiar el color del titulo del NC
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"),
                                                            style: .done,
                                                            target: self,
                                                            action: #selector(didTabMenuButton))
+        
+        
+        
     }
+    
+    
     
     @objc func didTabMenuButton() {
         delegate?.didTabMenuButton()
     }
+    
+    
 }
 
 
